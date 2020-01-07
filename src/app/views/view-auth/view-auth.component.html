@@ -1,0 +1,72 @@
+<h2 class="title">
+  January <br />
+  Training
+</h2>
+
+<form
+  class="auth-form"
+  #authForm="ngForm"
+  (ngSubmit)="onSubmitTemplate(authForm)"
+>
+  <div class="form-group">
+    <input
+      class="form-control"
+      id="email"
+      name="email"
+      type="email"
+      #inputEmail
+      ngModel
+      required
+      email
+      ngNativeValidate
+    />
+    <label class="form-label" for="email">
+      <span class="form-label-content">
+        Email
+      </span>
+    </label>
+  </div>
+  <div class="form-group">
+    <input
+      class="form-control"
+      id="password"
+      name="password"
+      type="password"
+      ngModel
+      required
+      password
+      ngNativeValidate
+      minlength="1"
+    />
+    <label class="form-label" for="password">
+      <span class="form-label-content">
+        Password
+      </span>
+    </label>
+  </div>
+  <div class="btn-container">
+    <button class="btn btn-primary btn-confirm" *ngIf="isFetching">
+      {{ isLoginMode ? logginIn : signingUp }}
+    </button>
+    <button
+      *ngIf="!isFetching"
+      class="btn btn-primary btn-confirm"
+      type="submit"
+      [disabled]="authForm.invalid"
+    >
+      {{ isLoginMode ? "Log In" : "Sign Up" }}
+    </button>
+    <button
+      class="btn btn-secondary btn-standard"
+      type="button"
+      (click)="onSwitchMode()"
+    >
+      {{ "Switch" | uppercase }}
+    </button>
+  </div>
+
+  <div class="message--container">
+    <p *ngIf="error" class="alert">{{ error }}</p>
+    <p *ngIf="success" class="success">{{ success }}</p>
+  </div>
+</form>

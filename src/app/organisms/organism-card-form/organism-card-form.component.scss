@@ -1,0 +1,94 @@
+@import "../../../assets/styles/tools";
+
+:host {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: $zindex-modal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    background: $color-secondary;
+    width: 300px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    &--title {
+        color: $color-ternary;
+        font-family: Base02;
+    }
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.description--content {
+    width: 100%;
+    height: 1px;
+    position: relative;
+    transition: 0.4s;
+    &.displayed {
+        height: 45px;
+        margin: 0.8rem 0 0;
+        @include screen-sm {
+            height: 54px;
+        }
+        .form-group__textarea {
+            min-width: 160px;
+            height: inherit;
+            visibility: visible;
+            background: transparent;
+            animation-timing-function: linear;
+            transform-style: preserve-3d;
+            opacity: 1;
+            transition: 0.4s;
+        }
+    }
+}
+
+.form-group__textarea {
+    min-width: 160px;
+    height: 0;
+    visibility: hidden;
+    background: transparent;
+    animation-timing-function: linear;
+    transform-style: preserve-3d;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.btn--container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin: 20px auto 20px;
+    .btn {
+        padding: 5px;
+        border-radius: 4px;
+    }
+}

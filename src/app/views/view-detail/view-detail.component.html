@@ -1,0 +1,40 @@
+<loader *ngIf="fetching"></loader>
+
+<div class="card" *ngIf="!fetching">
+  <header class="card__header">
+    <p class="card__header--content">
+      <span class="card__header--content-day">Day</span>
+      {{ day }}
+    </p>
+  </header>
+  <main class="card__body">
+    <p class="card__body--text" *ngIf="card.workout">
+      <span> Workout </span>
+      <span class="card__body--text--variable">
+        {{ workoutDescription }}
+      </span>
+    </p>
+    <p class="card__body--text" *ngIf="card.stretch">
+      <span>Stretch</span>
+      <span class="card__body--text--variable">
+        {{ stretchDescription }}
+      </span>
+    </p>
+    <p class="card__body--text" *ngIf="card.capoeira">
+      <span>
+        Capoeira
+      </span>
+      <span class="card__body--text--variable">
+        {{ capoeiraDescription }}
+      </span>
+    </p>
+    <p class="card__body--text" *ngIf="card.crossfit">
+      <span>
+        CrossFit
+      </span>
+      <span class="card__body--text--variable">
+        {{ crossfitDescription }}
+      </span>
+    </p>
+  </main>
+</div>

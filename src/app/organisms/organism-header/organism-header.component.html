@@ -1,0 +1,46 @@
+<!-- <p>{{ userName }}</p> -->
+
+<!-- <div class="header-nav">
+  <a class="btn-link" routerLink="/home" *ngIf="isAuthenticated">Home</a>
+  <a class="btn-link" routerLink="/" *ngIf="!isAuthenticated">Auth</a>
+  <a class="btn-link" routerLink="/detail">Detail</a>
+</div> -->
+<div class="header__card-count">
+  <p *ngIf="router.url === '/home'">{{ cardCount }} / 31</p>
+</div>
+
+<div class="header__title">
+  <a class="header__title--content" routerLink="/home">{{
+    heading | uppercase
+  }}</a>
+</div>
+
+<div class="dropdown__container" dropdown>
+  <div class="dropdown__trigger">
+    <span class="burger"></span>
+  </div>
+
+  <ul class="dropdown__menu">
+    <li
+      *ngIf="isAuthenticated"
+      (click)="onLogOut()"
+      class="dropdown__menu--item"
+    >
+      Log out
+    </li>
+    <li
+      *ngIf="isAuthenticated && router.url === '/home'"
+      (click)="onGetCards()"
+      class="dropdown__menu--item"
+    >
+      Fetch cards
+    </li>
+    <li
+      *ngIf="isAuthenticated && hasCard && router.url === '/home'"
+      (click)="onDeleteCards()"
+      class="dropdown__menu--item"
+    >
+      Delete cards
+    </li>
+  </ul>
+</div>

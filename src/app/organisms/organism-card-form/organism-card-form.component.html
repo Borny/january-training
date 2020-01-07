@@ -1,0 +1,151 @@
+<div class="modal-backdrop" (click)="cancel()"></div>
+<div class="modal">
+  <h2 class="modal--title">{{ title }}</h2>
+
+  <form class="form" [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input
+        type="checkbox"
+        id="workout"
+        class="checkbox"
+        formControlName="workout"
+        (change)="checkWorkoutValue($event)"
+      />
+      <label for="workout" class="form-label form-label__checkbox">
+        Workout
+        <span class="switch"></span>
+      </label>
+      <div
+        class="description--content"
+        [ngClass]="{ displayed: isWorkoutDisplayed }"
+      >
+        <div class="form-group__textarea">
+          <textarea
+            class="form-control form-control__textarea"
+            id="workout-description"
+            type="textarea"
+            formControlName="workoutDescription"
+            rows="1"
+          ></textarea>
+          <label class="form-label">
+            <span class="form-label-content">
+              Workout Description
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="checkbox"
+        id="stretch"
+        class="checkbox"
+        formControlName="stretch"
+        (change)="checkStretchValue($event)"
+      />
+      <label for="stretch" class="form-label form-label__checkbox">
+        Stretching
+        <span class="switch"></span>
+      </label>
+    </div>
+    <div
+      class="description--content"
+      [ngClass]="{ displayed: isStretchDisplayed }"
+    >
+      <div class="form-group__textarea">
+        <textarea
+          class="form-control form-control__textarea"
+          id="stretch-description"
+          type="textarea"
+          formControlName="stretchDescription"
+          rows="1"
+        ></textarea>
+        <label class="form-label">
+          <span class="form-label-content">
+            Stretching Description
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="checkbox"
+        id="capoeira"
+        class="checkbox"
+        formControlName="capoeira"
+        (change)="checkCapoeiraValue($event)"
+      />
+      <label for="capoeira" class="form-label form-label__checkbox">
+        Capoeira
+        <span class="switch"></span>
+      </label>
+    </div>
+    <div
+      class="description--content"
+      [ngClass]="{ displayed: isCapoeiraDisplayed }"
+    >
+      <div class="form-group__textarea">
+        <textarea
+          class="form-control form-control__textarea"
+          id="capoeira-description"
+          type="textarea"
+          formControlName="capoeiraDescription"
+          rows="1"
+        ></textarea>
+        <label class="form-label">
+          <span class="form-label-content">
+            Capoeira Description
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="checkbox"
+        id="crossfit"
+        class="checkbox"
+        formControlName="crossfit"
+        (change)="checkCrossfitValue($event)"
+      />
+      <label for="crossfit" class="form-label form-label__checkbox">
+        Crossfit
+        <span class="switch"></span>
+      </label>
+    </div>
+    <div
+      class="description--content"
+      [ngClass]="{ displayed: isCrossfitDisplayed }"
+    >
+      <div class="form-group__textarea">
+        <textarea
+          class="form-control form-control__textarea"
+          id="crossfit-description"
+          type="textarea"
+          formControlName="crossfitDescription"
+          rows="1"
+        ></textarea>
+        <label class="form-label">
+          <span class="form-label-content">
+            CrossFit Description
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div class="btn--container">
+      <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="cardForm.invalid"
+      >
+        {{ cta }}
+      </button>
+      <button class="btn btn-primary" type="button" (click)="cancel()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

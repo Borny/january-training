@@ -1,0 +1,42 @@
+@import "../../../assets/styles/tools";
+
+:host {
+    display: grid;
+    grid-template-columns: 60px 1fr 60px;
+    align-items: center;
+    background: $color-primary;
+    box-shadow: 0 0 1px 1px black;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: $zindex-header;
+    width: 100%;
+    padding: 1rem;
+    @media (min-width: $screen-sm) {
+        grid-template-columns: 100px 1fr 100px;
+    }
+}
+
+.header__card-count {
+    p {
+        font-family: Base02;
+        color: $color-secondary;
+    }
+}
+
+.header__title {
+    flex: 1;
+    text-align: center;
+    &--content {
+        color: $color-ternary;
+        font-family: Base02;
+        font-size: 1.1rem;
+        @include screen-sm {
+            font-size: 1.8rem;
+        }
+    }
+}
+span {
+    font-family: Base02;
+    color: $endeavour;
+}

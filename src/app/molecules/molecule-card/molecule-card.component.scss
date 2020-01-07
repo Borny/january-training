@@ -1,0 +1,72 @@
+@import "../../../assets/styles/tools";
+
+:host {
+    width: 100%;
+    display: flex;
+    border: 1px solid $color-ternary;
+    border-radius: 4px;
+    align-items: center;
+    padding: 0.7rem 0 0.7rem 1rem;
+    transition: 0.2s;
+    cursor: pointer;
+    @include screen-sm {
+        flex-flow: column;
+        padding: 1rem;
+    }
+    &:hover {
+        box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.card__header {
+    color: $mineShaft;
+    display: flex;
+    &--content {
+        font-size: 2rem;
+        font-family: Base02;
+        border-radius: 40px;
+        height: 30px;
+        display: flex;
+        width: 30px;
+        justify-content: center;
+        align-items: center;
+        transform: rotate(-10deg);
+        &-day {
+            padding: 0 0.3rem 0 0;
+        }
+    }
+}
+
+.card__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex: 1;
+    @include screen-sm {
+        flex-flow: column;
+        align-self: stretch;
+        align-items: stretch;
+        padding: 1rem 1rem 0;
+    }
+    &--content {
+        flex: 1;
+        padding: 0 0.5rem;
+    }
+    &--text {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include screen-sm {
+            justify-content: space-between;
+        }
+        &--variable {
+            color: $color-ternary;
+            font-weight: $fontWeightBold;
+            font-size: 1.2rem;
+            text-align: center;
+            p {
+                font-family: Base02;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+@import "../../../assets/styles/tools";
+
+:host {
+    flex: 1;
+}
+
+.card-container {
+    display: grid;
+    grid-gap: 16px;
+    @include screen-sm {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-auto-rows: minmax(180px, 1fr);
+    }
+}

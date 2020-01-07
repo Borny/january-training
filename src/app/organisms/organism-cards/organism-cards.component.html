@@ -1,0 +1,18 @@
+<p class="alert" *ngIf="!cards.length && !fetching && !error">
+  There are no cards to display...please add one
+</p>
+
+<loader *ngIf="fetching"></loader>
+<p *ngIf="error && !fetching">{{ error }}</p>
+
+<ng-container *ngIf="cards && !fetching">
+  <div class="card-container" [@listAnimation]="cards.length">
+    <molecule-card
+      *ngFor="let card of cards; index as i; last as isLast; trackBy: trackByFn"
+      [card]="card"
+      [index]="i"
+      [isLast]="isLast"
+      (click)="navigate(card, i)"
+    ></molecule-card>
+  </div>
+</ng-container>

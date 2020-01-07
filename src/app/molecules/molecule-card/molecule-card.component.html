@@ -1,0 +1,46 @@
+<header class="card__header">
+  <p class="card__header--content">
+    <span class="mobile-hidden card__header--content-day">Day</span>
+    {{ card.day }}
+  </p>
+</header>
+<main class="card__body">
+  <div class="card__body--content">
+    <p class="card__body--text">
+      <span>Workout</span>
+      <span class="card__body--text--variable">
+        <p *ngIf="card.workout">ok</p>
+        <p *ngIf="!card.workout">x</p>
+      </span>
+    </p>
+    <p class="card__body--text">
+      <span>
+        Stretching
+      </span>
+      <span class="card__body--text--variable">
+        <p *ngIf="card.stretch">ok</p>
+        <p *ngIf="!card.stretch">x</p>
+      </span>
+    </p>
+  </div>
+  <div class="card__body--content">
+    <p class="card__body--text">
+      <span>
+        Capoeira
+      </span>
+      <span class="card__body--text--variable">
+        <p *ngIf="card.capoeira">ok</p>
+        <p *ngIf="!card.capoeira">x</p>
+      </span>
+    </p>
+    <p class="card__body--text">
+      <span>
+        Crossfit
+      </span>
+      <span class="card__body--text--variable">
+        <p *ngIf="card.crossfit">ok</p>
+        <p *ngIf="!card.crossfit">x</p>
+      </span>
+    </p>
+  </div>
+</main>
