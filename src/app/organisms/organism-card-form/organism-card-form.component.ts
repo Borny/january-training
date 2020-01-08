@@ -96,7 +96,6 @@ export class OrganismCardFormComponent implements OnInit, OnDestroy {
     this.addCard(this.cardForm.value);
 
 
-
     // }
     // this.inputTime.nativeElement.focus();
   }
