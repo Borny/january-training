@@ -16,13 +16,10 @@ export class ViewAuthComponent {
 
   @ViewChild('inputEmail', { static: true }) emailInput: ElementRef;
 
-  public isLoginMode = true;
-
   public isFetching = false;
   public error = null;
   public success = null;
   public logginIn = 'Loggin In...';
-  public signingUp = 'Signing Up...';
 
   constructor(private authService: AuthService, private router: Router) {
   }
@@ -38,34 +35,21 @@ export class ViewAuthComponent {
     const email = form.value.email;
     const password = form.value.password;
 
-    let authObs: Observable<AuthResponseData>;
-
-    if (this.isLoginMode) {
-      authObs = this.authService.signIn(email, password);
-    } else {
-      authObs = this.authService.signUp(email, password);
-    }
-
-    authObs.subscribe(
-      (resData: AuthResponseData) => {
-        this.success = this.isLoginMode
-          ? `Log in successful!!`
-          : `Sign up successful!!`;
-        this.isFetching = false;
-        setTimeout(() => {
-          this.router.navigate(['/home']);
-        }, 2000);
-      },
-      (errorMessage) => {
-        this.error = errorMessage;
-        this.isFetching = false;
-      });
+    this.authService.signIn(email, password)
+      .subscribe(
+        (resData: AuthResponseData) => {
+          this.isFetching = false;
+          this.success = `Log in successful!!`;
+          setTimeout(() => {
+            this.router.navigate(['/home']);
+          }, 2000);
+        },
+        (errorMessage) => {
+          this.error = errorMessage;
+          this.isFetching = false;
+        });
 
     form.reset();
-  }
-
-  public onSwitchMode() {
-    this.isLoginMode = !this.isLoginMode;
   }
 
 }
