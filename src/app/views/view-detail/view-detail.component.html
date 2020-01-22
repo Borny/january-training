@@ -9,19 +9,19 @@
   </header>
   <main class="card__body">
     <p class="card__body--text" *ngIf="card.workout">
-      <span> Workout </span>
+      <span class="card__body--text--title"> Workout </span>
       <span class="card__body--text--variable">
         {{ workoutDescription }}
       </span>
     </p>
     <p class="card__body--text" *ngIf="card.stretch">
-      <span>Stretch</span>
+      <span class="card__body--text--title">Stretch</span>
       <span class="card__body--text--variable">
         {{ stretchDescription }}
       </span>
     </p>
     <p class="card__body--text" *ngIf="card.capoeira">
-      <span>
+      <span class="card__body--text--title">
         Capoeira
       </span>
       <span class="card__body--text--variable">
@@ -29,7 +29,7 @@
       </span>
     </p>
     <p class="card__body--text" *ngIf="card.crossfit">
-      <span>
+      <span class="card__body--text--title">
         CrossFit
       </span>
       <span class="card__body--text--variable">
