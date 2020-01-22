@@ -18,13 +18,13 @@ import { ICard } from '../../shared/models/card/card.model';
 export class ViewDetailComponent implements OnInit, OnDestroy {
   public day: string;
   public workout: string;
-  public workoutDescription: string;
+  public workoutDescription: string[];
   public crossfit: string;
-  public crossfitDescription: string;
+  public crossfitDescription: string[];
   public stretch: string;
-  public stretchDescription: string;
+  public stretchDescription: string[];
   public capoeira: string;
-  public capoeiraDescription: string;
+  public capoeiraDescription: string[];
   public card: ICard;
   public fetching = false;
 
@@ -50,6 +50,10 @@ export class ViewDetailComponent implements OnInit, OnDestroy {
     this.day = this.route.snapshot.queryParamMap.get('index');
   }
 
+  private splitString(description: string): string[] {
+    return description.trim().split('//');
+  }
+
   private onGetCard() {
     this.fetching = true;
     this.route.params.pipe(
@@ -61,13 +65,20 @@ export class ViewDetailComponent implements OnInit, OnDestroy {
     )
       .subscribe((card: ICard) => {
         this.card = card;
-        this.workoutDescription = card.workoutDescription;
-        this.crossfitDescription = card.crossfitDescription;
-        this.stretchDescription = card.stretchDescription;
-        this.capoeiraDescription = card.capoeiraDescription;
+        if (card.workout) {
+          this.workoutDescription = this.splitString(card.workoutDescription);
+        }
+        if (card.crossfit) {
+          this.crossfitDescription = this.splitString(card.crossfitDescription);
+        }
+        if (card.stretch) {
+          this.stretchDescription = this.splitString(card.stretchDescription);
+        }
+        if (card.capoeira) {
+          this.capoeiraDescription = this.splitString(card.capoeiraDescription);
+        }
         this.fetching = false;
       });
   }
-
 
 }
