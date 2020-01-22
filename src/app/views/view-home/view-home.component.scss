@@ -19,7 +19,8 @@
     height: 3rem;
     transition: 0.4s;
     cursor: pointer;
+    box-shadow: 0 0 6px 1px $color-ternary;
     &:hover {
-        box-shadow: 0 0 6px 1px $color-ternary;
+        box-shadow: 0 0 12px 4px $color-ternary;
     }
 }
