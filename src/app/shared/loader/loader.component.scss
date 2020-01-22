@@ -1,4 +1,10 @@
-@import "../../../assets/styles/tools";
+@import '../../../assets/styles/tools';
+
+:host {
+    margin: 200px 0 0;
+    display: flex;
+    position: relative;
+}
 
 .gooey {
     position: absolute;
